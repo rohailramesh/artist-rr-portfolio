@@ -1,11 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-
-import { connectToDatabase } from "@/lib/mongodb";
-import User from "@/lib/mongodb/models/user.model";
+import { connectToDatabase } from "../mongodb";
+import User from "../mongodb/models/user.model";
 import Order from "../mongodb/models/order.model";
-import Event from "@/lib/mongodb/models/event.model";
+import Event from "../mongodb/models/event.model";
 import { handleError } from "@/lib/utils";
 
 import { CreateUserParams, UpdateUserParams } from "@/types";

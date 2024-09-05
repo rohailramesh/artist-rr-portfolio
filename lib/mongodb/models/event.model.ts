@@ -16,8 +16,6 @@ export interface IEvent extends Document {
   organizer: { _id: string; firstName: string; lastName: string };
 }
 
-//purpose of the Interface is to know what document (properties) the schema has when using throughout the application
-
 const EventSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String },
