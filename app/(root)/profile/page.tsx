@@ -12,13 +12,21 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
 
+  // Get allowed MongoDB userId from environment variable
+  const allowedUserId = process.env.NEXT_PUBLIC_ALLOWED_USER_ID;
+
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
 
   const orders = await getOrdersByUser({ userId, page: ordersPage });
 
   const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
-  const organizedEvents = await getEventsByUser({ userId, page: eventsPage });
+  let organizedEvents = null;
+
+  // Fetch organized events only if userId matches the allowed one
+  if (userId === allowedUserId) {
+    organizedEvents = await getEventsByUser({ userId, page: eventsPage });
+  }
 
   return (
     <>
@@ -46,27 +54,34 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
       </section>
 
       {/* Events Organized */}
-      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
-        <div className="wrapper flex items-center justify-center sm:justify-between">
-          <h3 className="h3-bold text-center sm:text-left">Events Organized</h3>
-          <Button asChild size="lg" className="button hidden sm:flex">
-            <Link href="/events/create">Create New Event</Link>
-          </Button>
-        </div>
-      </section>
+      {userId === allowedUserId && (
+        <>
+          {/* Events Organized */}
+          <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+            <div className="wrapper flex items-center justify-center sm:justify-between">
+              <h3 className="h3-bold text-center sm:text-left">
+                Events Organized
+              </h3>
+              <Button asChild size="lg" className="button hidden sm:flex">
+                <Link href="/events/create">Create New Event</Link>
+              </Button>
+            </div>
+          </section>
 
-      <section className="wrapper my-8">
-        <Collection
-          data={organizedEvents?.data}
-          emptyTitle="No events have been created yet"
-          emptyStateSubtext="Go create some now"
-          collectionType="Events_Organized"
-          limit={3}
-          page={eventsPage}
-          urlParamName="eventsPage"
-          totalPages={organizedEvents?.totalPages}
-        />
-      </section>
+          <section className="wrapper my-8">
+            <Collection
+              data={organizedEvents?.data}
+              emptyTitle="No events have been created yet"
+              emptyStateSubtext="Go create some now"
+              collectionType="Events_Organized"
+              limit={3}
+              page={eventsPage}
+              urlParamName="eventsPage"
+              totalPages={organizedEvents?.totalPages}
+            />
+          </section>
+        </>
+      )}
     </>
   );
 };

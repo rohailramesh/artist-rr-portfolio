@@ -10,12 +10,13 @@ const Header = () => {
     <header className="w-full border-b">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
-          <Image
+          <h2>REEHA RAMESH</h2>
+          {/* <Image
             src="/assets/images/logo.svg"
             width={128}
             height={38}
             alt="Evently logo"
-          />
+          /> */}
         </Link>
 
         <SignedIn>
@@ -32,7 +33,7 @@ const Header = () => {
           </SignedIn>
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
-              <Link href="/sign-in">Login</Link>
+              <Link href="/sign-in">Attend Workshops</Link>
             </Button>
           </SignedOut>
         </div>
