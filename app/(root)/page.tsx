@@ -7,8 +7,12 @@ import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import VideoDisplay from "@/components/shared/VideoDisplay";
-import { Experience } from "@/components/shared/Experience";
-
+import Experience from "@/components/shared/Experience";
+import Projects from "@/components/shared/Projects";
+import TestimonialSlider from "@/components/shared/testimonials-slider";
+import testimonials from "@/data/testimonials.json";
+import TestimonialSliderCard from "@/components/shared/testimonials-slider-card";
+import { ContactForm } from "@/components/shared/ContactForm";
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
@@ -56,9 +60,6 @@ export default async function Home({ searchParams }: SearchParamProps) {
               Find out more about my journey and book tickets to upcoming
               workshops!
             </p>
-            {/* <Button size="lg" asChild className="button w-full sm:w-fit">
-              <Link href="#events">Explore Now</Link>
-            </Button> */}
           </div>
 
           <Image
@@ -71,11 +72,16 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </div>
       </section>
       <section>
-        <Experience />
+        <Experience testimonials={testimonials} />
       </section>
-      <section>Project cards</section>
-      <section>Testimonial cards</section>
-      <section>Contact form</section>
+      <section className="flex flex-col md:flex-row gap-8 py-10">
+        <div className="flex-1">
+          <TestimonialSlider testimonials={testimonials} />
+        </div>
+        <div className="flex-1">
+          <ContactForm />
+        </div>
+      </section>
     </>
   );
 }

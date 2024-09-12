@@ -147,3 +147,10 @@ export type SearchParamProps = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  imgSrc: string;
+};
