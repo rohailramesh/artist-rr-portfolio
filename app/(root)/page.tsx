@@ -6,6 +6,8 @@ import { getAllEvents } from "@/lib/actions/event.actions";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+import VideoDisplay from "@/components/shared/VideoDisplay";
+import { Experience } from "@/components/shared/Experience";
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -21,29 +23,10 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
-        <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
-          <div className="flex flex-col justify-center gap-8">
-            <h1 className="h1-bold">Professional Dancer</h1>
-            <p className="p-regular-20 md:p-regular-24">
-              Find out more about my journey and book tickets to upcoming
-              workshops!
-            </p>
-            <Button size="lg" asChild className="button w-full sm:w-fit">
-              <Link href="#events">Explore Now</Link>
-            </Button>
-          </div>
-
-          <Image
-            src="/assets/images/hero1.jpg"
-            alt="hero"
-            width={1000}
-            height={1000}
-            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
-          />
-        </div>
+      <section className="h-[80vh] w-full">
+        {/* Video section */}
+        <VideoDisplay />
       </section>
-
       <section
         id="events"
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
@@ -65,6 +48,34 @@ export default async function Home({ searchParams }: SearchParamProps) {
           totalPages={events?.totalPages}
         />
       </section>
+      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
+        <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
+          <div className="flex flex-col justify-center gap-8">
+            <h1 className="h1-bold">Professional Dancer</h1>
+            <p className="p-regular-20 md:p-regular-24">
+              Find out more about my journey and book tickets to upcoming
+              workshops!
+            </p>
+            {/* <Button size="lg" asChild className="button w-full sm:w-fit">
+              <Link href="#events">Explore Now</Link>
+            </Button> */}
+          </div>
+
+          <Image
+            src="/assets/images/intro-pic.jpeg"
+            alt="hero"
+            width={1000}
+            height={1000}
+            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
+          />
+        </div>
+      </section>
+      <section>
+        <Experience />
+      </section>
+      <section>Project cards</section>
+      <section>Testimonial cards</section>
+      <section>Contact form</section>
     </>
   );
 }
