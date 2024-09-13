@@ -1,72 +1,81 @@
 "use client";
 
-import React, { useState } from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-const projects = [
-  {
-    id: 1,
-    title: "MMUK London Event",
-    image: "/assets/images/mmuk-event.jpeg",
-    description:
-      "I thoroughly enjoyed the opportunity to choreograph a festive event, where I applied my expertise in dance and deep understanding of Indian culture. The experience of sharing the performance with the audience was truly rewarding and memorable.",
-  },
-  {
-    id: 2,
-    title: "MMUK London Event",
-    image: "/assets/images/mmuk-event.jpeg",
-    description:
-      "I thoroughly enjoyed the opportunity to choreograph a festive event, where I applied my expertise in dance and deep understanding of Indian culture. The experience of sharing the performance with the audience was truly rewarding and memorable.",
-  },
-  {
-    id: 3,
-    title: "MMUK London Event",
-    image: "/assets/images/mmuk-event.jpeg",
-    description:
-      "I thoroughly enjoyed the opportunity to choreograph a festive event, where I applied my expertise in dance and deep understanding of Indian culture. The experience of sharing the performance with the audience was truly rewarding and memorable.",
-  },
-];
-
-export default function Projects() {
-  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(
-    null
-  );
-
-  const handleMoreInfoClick = (id: number) => {
-    setSelectedProjectId(id);
-  };
+import { useState } from "react";
+import Image from "next/image";
+import events from "@/data/events.json"; // Import the events data
+import styles from "@/components/shared/HomePage.module.css";
+export default function Project() {
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   return (
     <>
-      <div>
-        <h1 className="flex justify-center">Projects</h1>
-      </div>
-      <div className="flex gap-4 mt-4 overflow-x-scroll">
-        {projects.map((project) => (
-          <Card key={project.id}>
-            <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4 py-4">
-              <img
-                src={project.image}
-                alt="Placeholder"
-                className="w-full h-auto"
-                width="200"
-                height="200"
-                style={{ aspectRatio: "200/200", objectFit: "contain" }}
-              />
-              <Button onClick={() => handleMoreInfoClick(project.id)}>
-                More Info
-              </Button>
-              {selectedProjectId === project.id && (
-                <div className="mt-4 p-4 border-t border-gray-200">
-                  <p>{project.description}</p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+      <h1
+        className={`text-center text-2xl font-bold mb-8 text-orange-500 ${styles.textColour}`}
+      >
+        PROJECTS
+      </h1>
+      <div className="flex flex-wrap gap-6">
+        {events.map((event) => (
+          <div
+            key={event.id}
+            className={`w-96 h-96 relative transition-all duration-500 transform-style-preserve-3d ${
+              flippedIndex === event.id ? "rotate-y-180" : ""
+            }`}
+            onClick={() =>
+              setFlippedIndex(flippedIndex === event.id ? null : event.id)
+            }
+          >
+            {/* Front Side */}
+            <div
+              className={`absolute inset-0 backface-hidden transition-opacity duration-500 ${
+                flippedIndex === event.id ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              <div className="w-full h-full bg-primary rounded-xl flex flex-col items-center justify-center p-4">
+                <p className="mt-4 text-lg font-semibold text-primary-foreground">
+                  {event.name}
+                </p>
+                {/* Image */}
+                <Image
+                  src={event.imgSrc}
+                  alt={event.name}
+                  width={event.width}
+                  height={event.height}
+                  className="rounded-lg object-cover"
+                />
+                {/* Event Name */}
+
+                {/* Description */}
+                <p className="mt-4 text-lg font-semibold text-primary-foreground">
+                  Click to flip and learn more!
+                </p>
+              </div>
+            </div>
+
+            {/* Back Side */}
+            <div
+              className={`absolute inset-0 backface-hidden rotate-y-180 transition-opacity duration-500 ${
+                flippedIndex === event.id ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div className="w-full h-full bg-card rounded-xl p-6 flex flex-col justify-center">
+                <h3 className="text-xl font-semibold text-card-foreground">
+                  {event.name}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {event.description}
+                </p>
+                <a
+                  href={event.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 text-blue-500 underline"
+                >
+                  Check it out!
+                </a>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </>

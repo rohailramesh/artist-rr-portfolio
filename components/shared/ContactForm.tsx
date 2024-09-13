@@ -10,6 +10,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
 import { Label } from "@/components/ui/label";
 import styles from "@/components/shared/HomePage.module.css";
 export function ContactForm() {
@@ -46,26 +48,18 @@ export function ContactForm() {
 
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="message">Message</Label>
-            <Input
-              id="message"
+            <Textarea
               name="message"
-              type="text"
-              placeholder="Your message"
+              id="message"
+              placeholder="Want to hire me? Want to collaborate on a project? Interested in my services? Just send me a message and I'll get back to you."
               required
             />
           </div>
-          <input
-            type="hidden"
-            name="_next"
-            value="https://artist-rr-portfolio.vercel.app/"
-          />
+          <Button type="submit" className={styles.btn}>
+            Send Message
+          </Button>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-center">
-        <Button type="submit" className={styles.btn}>
-          Send Message
-        </Button>
-      </CardFooter>
     </Card>
   );
 }

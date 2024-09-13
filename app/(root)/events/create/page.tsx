@@ -1,7 +1,7 @@
 import React from "react";
 import EventForm from "@/components/shared/EventForm";
 import { auth } from "@clerk/nextjs/server";
-
+import styles from "@/components/shared/HomePage.module.css";
 const CreateEvent = () => {
   const { sessionClaims } = auth();
 
@@ -25,8 +25,10 @@ const CreateEvent = () => {
   // Render the event creation form if the user is authorized
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
-        <h3 className="wrapper h3-bold text-center sm:text-left">
+      <section className="bg-black bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+        <h3
+          className={`wrapper h3-bold text-center sm:text-left ${styles.textColour}`}
+        >
           Create Event
         </h3>
       </section>

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "DANCE INSTRUCTOR",
+    "description": "Choreographing for this festive event was a truly rewarding experience. Sharing my techniques and skills with the audience, alongside my team's performance on stage, was met with great appreciation. If you're interested in booking us for future events, feel free to reach out through the contact information provided.",
+    "imgSrc": "/assets/images/instructor.jpeg",
+    "link": "https://www.instagram.com/reebolly/",
+    "width": 500,
+    "height": 500
+  },
+  {
+    "id": 2,
+    "name": "CHOREOGRAPHER",
+    "description": "Showcasing my dance skills—whether through choreographing for events, workshops, or weddings—provides valuable insight into my clients' needs and enables me to deliver exceptional performances with my team.",
+    "imgSrc": "/assets/images/choreographer.jpeg",
+    "link": "https://www.instagram.com/reebolly/",
+    "width": 500,
+    "height": 500
+  },
+  {
+    "id": 3,
+    "name": "PERFORMER",
+    "description": "Performing is a truly exhilarating experience. The thrill of seeing the spark in the audience eyes and pouring my energy into each performance is profoundly rewarding. The connection with the audience and the adrenaline of the stage create unforgettable moments.",
+    "imgSrc": "/assets/images/performer-1.jpeg",
+    "link": "https://www.instagram.com/reebolly/",
+    "width": 130,
+    "height": 130
+  }
+]

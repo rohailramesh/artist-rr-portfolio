@@ -7,7 +7,7 @@ import { SearchParamProps } from "@/types";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import React from "react";
-
+import styles from "@/components/shared/HomePage.module.css";
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
@@ -31,16 +31,24 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   return (
     <>
       {/* My Tickets */}
-      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+      <section className="bg-black bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <div className="wrapper flex items-center justify-center sm:justify-between">
-          <h3 className="h3-bold text-center sm:text-left">My Tickets</h3>
-          <Button asChild size="lg" className="button hidden sm:flex">
+          <h3
+            className={`h3-bold text-center sm:text-left ${styles.textColour}`}
+          >
+            My Tickets
+          </h3>
+          <Button
+            asChild
+            size="lg"
+            className={`button hidden sm:flex text-black`}
+          >
             <Link href="/#events">Explore More Events</Link>
           </Button>
         </div>
       </section>
 
-      <section className="wrapper my-8">
+      <section className={`wrapper bg-black ${styles.myTickets}`}>
         <Collection
           data={orderedEvents}
           emptyTitle="No event tickets purchased yet"
@@ -57,12 +65,18 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
       {userId === allowedUserId && (
         <>
           {/* Events Organized */}
-          <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+          <section className="bg-black bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
             <div className="wrapper flex items-center justify-center sm:justify-between">
-              <h3 className="h3-bold text-center sm:text-left">
+              <h3
+                className={`h3-bold text-center sm:text-left ${styles.textColour}`}
+              >
                 Events Organized
               </h3>
-              <Button asChild size="lg" className="button hidden sm:flex">
+              <Button
+                asChild
+                size="lg"
+                className={`button hidden sm:flex ${styles.btn}`}
+              >
                 <Link href="/events/create">Create New Event</Link>
               </Button>
             </div>

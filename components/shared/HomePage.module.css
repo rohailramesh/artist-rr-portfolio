@@ -1,6 +1,10 @@
 .eventsSection {
   color: #feb236;
 }
+.logo {
+  border: solid;
+  border-radius: 10px;
+}
 
 .mySelf {
   color: #feb236;
@@ -34,6 +38,7 @@
 .card {
   border-color: #feb236;
   color: #feb236;
+  border: solid;
 }
 
 .btn {
@@ -46,6 +51,13 @@
 }
 
 .collectionCard {
+  border-radius: 20px;
+  border-color: #feb236;
+}
+
+.myTickets {
+  border-color: #feb236;
+  color: #feb236;
   border: solid;
   border-radius: 20px;
 }

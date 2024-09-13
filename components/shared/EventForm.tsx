@@ -344,7 +344,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                     />
 
                     <Input
-                      placeholder="URL"
+                      placeholder="Extra Notes"
                       {...field}
                       className="input-field"
                     />

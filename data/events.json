@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "MMUK DIWALI EVENT LONDON",
+    "description": "Choreographing for this festive event was a truly rewarding experience. Sharing my techniques and skills with the audience, alongside my team's performance on stage, was met with great appreciation. If you're interested in booking us for future events, feel free to reach out through the contact information provided.",
+    "imgSrc": "/assets/images/mmuk-event.jpeg",
+    "link": "https://www.instagram.com/reel/C9IUzLqK2Nm/?igsh=MXZpejBoajlwbGF4aw",
+    "width": 500,
+    "height": 500
+  },
+  {
+    "id": 2,
+    "name": "Hounslow Mela festival",
+    "description": "Performing with the Ignite Bollywood dance team at the Hounslow Mela was an exciting and engaging experience. Interacting with the audience and showcasing our dance routines was a highlight. If you're interested in collaborating with us, please reach out through the contact information provided.",
+    "imgSrc": "/assets/images/hounslow-mela.jpeg",
+    "link": "https://www.instagram.com/reel/C8sWqDPqqQ0/?igsh=dTF2ZmZyMTd4NnV2",
+    "width": 500,
+    "height": 500
+  },
+  {
+    "id": 3,
+    "name": "Wedding Choreography",
+    "description": "Choreographing and performing at weddings is a truly joyous experience. Witnessing the smiles and dedication of families eager to showcase special dance moves on the dance floor is unforgettable. If you're interested in booking us for wedding choreography, please get in touch through the contact information provided.",
+    "imgSrc": "/assets/images/performer.jpeg",
+    "link": "https://www.instagram.com/tv/CZSZzyVJFAH/?igsh=aGlnNnA3bGk1eWQ=",
+    "width": 200,
+    "height": 200
+  }
+]
