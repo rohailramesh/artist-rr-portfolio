@@ -21,7 +21,8 @@ export default function TestimonialSliderCard({
 }: TestimonialSliderCardProps) {
   return (
     <section className="w-full py-4">
-      <div className="mx-auto lg:max-w-6xl px-3">
+      {/* Outer container ensuring full width with a max width limit on larger screens */}
+      <div className="w-full mx-auto px-3 lg:max-w-6xl">
         <Carousel>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
@@ -59,8 +60,9 @@ export default function TestimonialSliderCard({
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2 fill-black" />
-          <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 fill-black" />
+          {/* Updated positioning of next/previous buttons to avoid overflow */}
+          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 fill-black md:left-[-20px]" />
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 fill-black md:right-[-20px]" />
         </Carousel>
       </div>
     </section>

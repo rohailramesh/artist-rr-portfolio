@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
-
+import styles from "@/components/shared/HomePage.module.css";
 const Header = () => {
   return (
     <header className="w-full border-b">
@@ -31,7 +31,7 @@ const Header = () => {
             <MobileNav />
           </SignedIn>
           <SignedOut>
-            <Button asChild className="rounded-full" size="lg">
+            <Button asChild className={`rounded-full ${styles.btn}`} size="lg">
               <Link href="/sign-in">Attend Workshops</Link>
             </Button>
           </SignedOut>

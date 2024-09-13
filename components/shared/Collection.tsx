@@ -2,7 +2,7 @@ import { IEvent } from "@/lib/mongodb/models/event.model";
 import React from "react";
 import Card from "./Card";
 import Pagination from "./Pagination";
-
+import styles from "@/components/shared/HomePage.module.css";
 type CollectionProps = {
   data: IEvent[];
   emptyTitle: string;
@@ -29,7 +29,9 @@ const Collection = ({
   return (
     <>
       {validEvents.length > 0 ? (
-        <div className="flex flex-col items-center gap-10">
+        <div
+          className={`flex flex-col items-center gap-10 ${styles.collectionCard}`}
+        >
           <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
             {validEvents.map((event) => {
               const hasOrderLink = collectionType === "Events_Organized";

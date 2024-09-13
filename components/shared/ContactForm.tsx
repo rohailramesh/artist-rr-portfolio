@@ -11,13 +11,13 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
+import styles from "@/components/shared/HomePage.module.css";
 export function ContactForm() {
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className={`w-full max-w-md mx-auto ${styles.contactForm}`}>
       <CardHeader>
         <CardTitle>Contact Us</CardTitle>
-        <CardDescription>
+        <CardDescription className="text-sm text-white">
           Fill out the form below to send us a message.
         </CardDescription>
       </CardHeader>
@@ -61,8 +61,10 @@ export function ContactForm() {
           />
         </form>
       </CardContent>
-      <CardFooter className="flex justify-end">
-        <Button type="submit">Send Message</Button>
+      <CardFooter className="flex justify-center">
+        <Button type="submit" className={styles.btn}>
+          Send Message
+        </Button>
       </CardFooter>
     </Card>
   );

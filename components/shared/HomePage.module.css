@@ -1,0 +1,51 @@
+.eventsSection {
+  color: #feb236;
+}
+
+.mySelf {
+  color: #feb236;
+  padding: 20px;
+  background-color: black;
+  border-color: #feb236;
+}
+
+.testimonialCarousel {
+  border: solid;
+  border-color: #feb236;
+  border-radius: 10px;
+}
+
+.testimonialSection {
+  padding: 20px;
+}
+
+.textColour {
+  color: #feb236;
+}
+
+.contactForm {
+  padding: 30px;
+  background-color: black;
+  border-color: #feb236;
+  color: #feb236;
+  border-radius: 10px;
+}
+
+.card {
+  border-color: #feb236;
+  color: #feb236;
+}
+
+.btn {
+  background-color: #feb236;
+  color: black;
+}
+
+.fontColour {
+  color: #feb236;
+}
+
+.collectionCard {
+  border: solid;
+  border-radius: 20px;
+}
