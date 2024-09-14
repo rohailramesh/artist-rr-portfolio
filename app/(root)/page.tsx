@@ -54,10 +54,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
       >
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
-            <h1 className="h1-bold">Professional Dancer</h1>
+            <h1 className="h1-bold">Who is Reeha?</h1>
             <p className="p-regular-20 md:p-regular-24">
-              Find out more about my journey and book tickets to upcoming
-              workshops!
+              A trained dancer for 5+ years but a passion of dancing since
+              childhood. Spreading the love of dance and life through dance
+              styles such as Afro, Hip-Hop, Contemppary, Semi-Classical and
+              Bachata through workshops and tutorials. Already on your toes
+              after reading this? Join me in one of my workshops!
             </p>
           </div>
 
