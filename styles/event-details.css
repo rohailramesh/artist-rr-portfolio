@@ -1,0 +1,41 @@
+/* Mobile-first approach: Adjust layout for small screens */
+.event-details-container {
+  display: block;
+}
+
+.event-details-image {
+  width: 100%;
+  height: auto;
+}
+
+.event-details-text {
+  padding: 1rem;
+}
+
+/* For tablets and above */
+@media (min-width: 640px) {
+  .event-details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two-column layout */
+    gap: 1rem;
+  }
+
+  .event-details-text {
+    padding: 2rem;
+  }
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+  .event-details-container {
+    gap: 2rem;
+  }
+
+  .event-details-image {
+    height: 400px;
+  }
+
+  .event-details-text {
+    padding: 3rem;
+  }
+}
