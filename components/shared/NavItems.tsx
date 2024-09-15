@@ -23,7 +23,7 @@ const NavItems = () => {
   }, [isLoaded, userId]);
 
   return (
-    <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row text-black">
+    <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row text-primary-500">
       {filteredLinks.map((link) => {
         const isActive = pathname === link.route;
 
