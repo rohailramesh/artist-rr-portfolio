@@ -64,7 +64,7 @@ export default function TestimonialSlider({
                           height={40}
                           width={40}
                           alt={testimonial.name}
-                          src={testimonial.imgSrc}
+                          src="https://www.gravatar.com/avatar?d=mp"
                           loading="lazy"
                         /> */}
                       </span>
