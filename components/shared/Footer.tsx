@@ -25,6 +25,17 @@ const Footer = () => (
           height={24}
         />
       </Link>
+      <Link
+        href="https://www.tiktok.com/@reeha.r?_t=8pkYYCwyQOe&_r=1"
+        target="_blank"
+      >
+        <Image
+          src="/assets/icons/tiktok.svg"
+          alt="Instagram"
+          width={24}
+          height={24}
+        />
+      </Link>
     </div>
   </footer>
 );

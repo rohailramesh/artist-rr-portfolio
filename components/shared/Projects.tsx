@@ -10,7 +10,7 @@ export default function Project() {
   return (
     <>
       <h1
-        className={`text-center text-2xl font-bold mb-8 text-orange-500 ${styles.textColour}`}
+        className={`text-center text-2xl font-bold mb-8 text-orange-500 ${styles.workHeadings}`}
       >
         PROJECTS
       </h1>
@@ -32,7 +32,7 @@ export default function Project() {
               }`}
             >
               <div className="w-full h-full bg-primary rounded-xl flex flex-col items-center justify-center p-4">
-                <p className="mt-4 text-lg font-semibold text-primary-foreground">
+                <p className="mt-4 text-lg font-semibold text-black">
                   {event.name}
                 </p>
                 {/* Image */}
@@ -46,7 +46,7 @@ export default function Project() {
                 {/* Event Name */}
 
                 {/* Description */}
-                <p className="mt-4 text-lg font-semibold text-primary-foreground">
+                <p className="mt-4 text-lg font-semibold text-black">
                   Click to flip and learn more!
                 </p>
               </div>
