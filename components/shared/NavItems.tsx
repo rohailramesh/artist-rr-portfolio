@@ -9,7 +9,6 @@ import { useAuth } from "@clerk/nextjs";
 const NavItems = () => {
   const pathname = usePathname();
   const { userId, isLoaded } = useAuth(); // use Clerk's client-side hook to get userId
-  console.log("userId", userId);
   const [filteredLinks, setFilteredLinks] = useState(headerLinks);
 
   useEffect(() => {

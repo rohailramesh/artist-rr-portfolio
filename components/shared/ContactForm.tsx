@@ -25,7 +25,7 @@ export function ContactForm() {
       </CardHeader>
       <CardContent>
         <form
-          action="https://formsubmit.co/rohailramesh@hotmail.com"
+          action="https://formsubmit.co/reeharamesh145@gmail.com"
           method="POST"
           target="_blank"
           style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
