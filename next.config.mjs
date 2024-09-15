@@ -10,7 +10,7 @@ const nextConfig = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://www.reebolly.co.uk",
+            value: "https://clerk.reebolly.co.uk",
           }, // replace "*" with your actual origin, e.g., "https://www.reebolly.co.uk"
           {
             key: "Access-Control-Allow-Methods",
