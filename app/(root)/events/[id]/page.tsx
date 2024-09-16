@@ -8,7 +8,9 @@ import {
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
-
+import Link from "next/link";
+import styles from "@/components/shared/HomePage.module.css";
+import { Button } from "@/components/ui/button";
 const EventDetails = async ({
   params: { id },
   searchParams,
@@ -99,9 +101,19 @@ const EventDetails = async ({
           </div>
         </div>
       </section>
+      <br />
+      <div className="flex-center flex gap-4">
+        <Button asChild className={`rounded-full ${styles.btn}`} size="lg">
+          <Link href="/">Go Back</Link>
+        </Button>
+        <Button asChild className={`rounded-full ${styles.btn}`} size="lg">
+          <Link href="/profile">My Profile</Link>
+        </Button>
+      </div>
 
+      <br />
       {/* EVENTS with the same category */}
-      <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+      {/* <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <h2 className="h2-bold">Related Events</h2>
 
         <Collection
@@ -113,7 +125,7 @@ const EventDetails = async ({
           page={searchParams.page as string}
           totalPages={relatedEvents?.totalPages}
         />
-      </section>
+      </section> */}
     </>
   );
 };
