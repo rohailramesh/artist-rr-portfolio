@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import { DeleteConfirmation } from "./DeleteConfirmation";
 import styles from "@/components/shared/HomePage.module.css";
+import "@/styles/event-details.css";
 type CardProps = {
   event: IEvent;
   hasOrderLink?: boolean;
@@ -25,7 +26,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
       <Link
         href={`/events/${event._id}`}
         style={{ backgroundImage: `url(${event.imageUrl})` }}
-        className="flex-center flex-grow bg-gray-50 bg-cover bg-center text-orange-500"
+        className={`${styles.eventDetailsImage}  flex-center flex-grow bg-gray-50 bg-cover bg-center text-orange-500`}
       />
       {/* IS EVENT CREATOR ... */}
 

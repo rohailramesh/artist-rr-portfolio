@@ -28,7 +28,6 @@ import { useRouter } from "next/navigation";
 import { createEvent, updateEvent } from "@/lib/actions/event.actions";
 import { IEvent } from "@/lib/mongodb/models/event.model";
 import { useUploadThing } from "@/lib/uploadthing";
-
 type EventFormProps = {
   userId: string;
   type: "Create" | "Update";
@@ -55,23 +54,89 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     defaultValues: initialValues,
   });
 
-  async function onSubmit(values: z.infer<typeof eventFormSchema>) {
-    let uploadedImageUrl = values.imageUrl;
+  // async function onSubmit(values: z.infer<typeof eventFormSchema>) {
+  //   const startDateTime = new Date(values.startDateTime).toISOString();
+  //   const endDateTime = new Date(values.endDateTime).toISOString();
+  //   let uploadedImageUrl = values.imageUrl;
 
+  //   if (files.length > 0) {
+  //     const uploadedImages = await startUpload(files);
+
+  //     if (!uploadedImages) {
+  //       return;
+  //     }
+
+  //     uploadedImageUrl = uploadedImages[0].url;
+  //   }
+
+  //   if (type === "Create") {
+  //     try {
+  //       const newEvent = await createEvent({
+  //         event: { ...values, imageUrl: uploadedImageUrl, startDateTime: startDateTime, endDateTime: endDateTime },
+  //         userId,
+  //         path: "/profile",
+  //       });
+
+  //       if (newEvent) {
+  //         form.reset();
+  //         router.push(`/events/${newEvent._id}`);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+
+  //   if (type === "Update") {
+  //     if (!eventId) {
+  //       router.back();
+  //       return;
+  //     }
+
+  //     try {
+  //       const updatedEvent = await updateEvent({
+  //         userId,
+  //         event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
+  //         path: `/events/${eventId}`,
+  //       });
+
+  //       if (updatedEvent) {
+  //         form.reset();
+  //         router.push(`/events/${updatedEvent._id}`);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // }
+  async function onSubmit(values: z.infer<typeof eventFormSchema>) {
+    const startDateTime = new Date(values.startDateTime);
+    const endDateTime = new Date(values.endDateTime);
+
+    // Add 1 hour (3600000 milliseconds) to both dates
+    startDateTime.setTime(startDateTime.getTime() + 3600000);
+    endDateTime.setTime(endDateTime.getTime() + 3600000);
+
+    // Handle image upload
+    let uploadedImageUrl = values.imageUrl;
     if (files.length > 0) {
       const uploadedImages = await startUpload(files);
-
       if (!uploadedImages) {
         return;
       }
-
       uploadedImageUrl = uploadedImages[0].url;
     }
+
+    const eventData = {
+      ...values,
+      imageUrl: uploadedImageUrl,
+      startDateTime, // This remains a Date object
+      endDateTime, // This remains a Date object
+    };
 
     if (type === "Create") {
       try {
         const newEvent = await createEvent({
-          event: { ...values, imageUrl: uploadedImageUrl },
+          event: eventData,
           userId,
           path: "/profile",
         });
@@ -94,7 +159,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
       try {
         const updatedEvent = await updateEvent({
           userId,
-          event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
+          event: { ...eventData, _id: eventId },
           path: `/events/${eventId}`,
         });
 
